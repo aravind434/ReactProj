@@ -6,4 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.mybox {
+  padding:10px;
+  border: 1px solid;
+  margin: 10px;
+}

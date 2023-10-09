@@ -5,31 +5,32 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import { store } from './app/store';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+//   Route,
+//   Link,
+// } from "react-router-dom";
 import Pokemondetails from './features/pokemon/Pokemondetails';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element:<App></App>,
-    children:[
-      {
-        path: "/pokemondetails/:pkdetails",
-        element:<Pokemondetails></Pokemondetails>,
-      }
-    ]
-  }
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element:<App></App>,
+//     children:[
+//       {
+//         path: "/pokemondetails/:pkdetails",
+//         element:<Pokemondetails></Pokemondetails>,
+//       }
+//     ]
+//   }
+// ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-     <RouterProvider router={router} />
+     {/* <RouterProvider router={router} /> */}
+     <App></App>
   </Provider>,
 );
 

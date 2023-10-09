@@ -1,16 +1,25 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useGetPokemondetailsByNameQuery } from "../../services/pokemon";
 
-function Pokemondetails(){
-    var {pkdetails} = useParams(pkdetails);
+function Pokemondetails(props){
+    var { pkdetails } = props
+    console.log("welcome to " ,pkdetails)
     var {data, isLoading} = useGetPokemondetailsByNameQuery(pkdetails)
+
     return(
-        <div className="pkdetails">
+        <div className="mybox">
             <h1>
                 details of pkmon {pkdetails}
             </h1>
-
+                {
+                    isLoading && <img src='https://media.tenor.com/0iK9a1WkT40AAAAM/loading-white.gif' alt=''></img>
+                }
+                {
+                        data && 
+                            <i>height of pkmon {data.height}</i>
+                
+                }
+                
         </div>
     )
 }

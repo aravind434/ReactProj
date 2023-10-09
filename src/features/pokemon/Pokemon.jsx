@@ -8,30 +8,30 @@ function Pokemon(){
     console.log(data)
     return(
         <div className="mybox" style={{display:"flex"}}>
-            <div className="left-container" width="45%">
-                <h1>Pokemon Names</h1>
+            {/* <div className="left-container" width="45%"> */}
             <ul>
+                <h1>Pokemon Names</h1>
                 {
                     isLoading && <img src='https://media.tenor.com/0iK9a1WkT40AAAAM/loading-white.gif' alt=''></img>
                 }
             {
                 data && data.results.map(pokemon=>{
                   return (
-                    <li className="list">
-                        <Link to={`/pokemondetails/${pokemon.name}`}>{pokemon.name}</Link>
-                    </li>
+                    <div>
+                        <PokemonDetails pkdetails={pokemon.name}></PokemonDetails>
+                    </div>
                   )
                 })
             }
             </ul>
-            </div>
+            {/* </div>
 
             <br/>
 
             <div className="right-container" width="45%">
                 <Outlet></Outlet>
 
-            </div>
+            </div> */}
             
         </div>
     )

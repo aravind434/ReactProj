@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetAllCountriesQuery } from "../services/countries";
+import { Link, Outlet } from "react-router-dom";
 
 function Countries(){
     var {isLoading, data} = useGetAllCountriesQuery()
@@ -13,10 +14,13 @@ function Countries(){
                 }
             {
                 data && data.map(country=>{
-                  return <li>{country.name.common}</li>
+                  return <li>
+                        <Link to={`countrydetails/${country.name.common}`}>{country.name.common}</Link>
+                    </li>
                 })
             }
             </ul>
+            <Outlet></Outlet>
         </div>
     )
 }

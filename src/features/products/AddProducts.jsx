@@ -1,14 +1,15 @@
 import React from "react";
 import {useFormik} from 'formik';
-import { useAddProductsByIdMutation } from "../../services/products.service";
+import { useAddProductsByIdMutation, useLazyGetProductsByNameQuery } from "../../services/products.service";
 
 function AddProducts(){
-    var [addFn] = useAddProductsByIdMutation()
+    var [addFn] = useAddProductsByIdMutation();
+    var [rfn] = useLazyGetProductsByNameQuery();
     var productForm = useFormik({
         initialValues:{
             "title": "",
             "price": 0,
-            "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+            "description": "",
             "category": "",
             "image": "",
             "rating": {
@@ -19,7 +20,8 @@ function AddProducts(){
         onSubmit:(values)=>{
             console.log(values);
             addFn(values).then(()=>{
-               alert('product added successfully')
+               alert('product added successfully');
+               rfn();
             })
 
         }
